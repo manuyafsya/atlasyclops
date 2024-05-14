@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "name": {
+      "description": "Application name",
+      "type": "string"
+    }
+  },
+  "order": [
+    "name"
+  ],
+  "required": [
+    "name"
+  ],
+  "title": "Values",
+  "type": "object"
+}
