@@ -1,25 +1,15 @@
 {
   "properties": {
-    "nameOverride": {
-      "description": "description",
+    "namespace": {
+      "description": "namespace",
       "type": "string"
-    },
-    "fullnameOverride": {
-      "description": "description",
-      "type": "string"
-    },
-    "replicaCount": {
-      "description": "Number of replicas",
-      "type": "integer"
     }
   },
   "order": [
-    "nameOverride",
-    "fullnameOverride"
+    "namespace"
   ],
   "required": [
-    "nameOverride",
-    "fullnameOverride"
+    "namespace"
   ],
   "title": "Values",
   "type": "object"
