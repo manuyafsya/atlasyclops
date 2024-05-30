@@ -1,5 +1,4 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "properties": {
         "affinity": {
             "properties": {},
@@ -458,5 +457,12 @@
             "type": "array"
         }
     },
+    "order": [
+        "nameOverride"
+      ],
+      "required": [
+        "nameOverride"
+      ],
+    "title": "Values",
     "type": "object"
 }
