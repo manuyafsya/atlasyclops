@@ -1,4 +1,5 @@
 {
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "properties": {
         "affinity": {
             "properties": {},
@@ -457,6 +458,5 @@
             "type": "array"
         }
     },
-    "title": "Values",
     "type": "object"
 }
