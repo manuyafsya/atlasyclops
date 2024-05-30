@@ -9,7 +9,7 @@
     "name"
   ],
   "required": [
-    "name",
+    "name"
   ],
   "title": "Values",
   "type": "object"
