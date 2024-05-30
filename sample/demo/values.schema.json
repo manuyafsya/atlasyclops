@@ -15,6 +15,49 @@
     "replicaCount": {
       "description": "deskripsi",
       "type": "integer"
+    },
+    "secrets": {
+      "properties": {
+          "configs": {
+              "properties": {
+                  "autorestart": {
+                      "properties": {
+                          "enabled": {
+                              "type": "boolean"
+                          }
+                      },
+                      "type": "object"
+                  },
+                  "enabled": {
+                      "type": "boolean"
+                  },
+                  "path": {
+                      "type": "string"
+                  }
+              },
+              "type": "object"
+          },
+          "creds": {
+              "properties": {
+                  "autorestart": {
+                      "properties": {
+                          "enabled": {
+                              "type": "boolean"
+                          }
+                      },
+                      "type": "object"
+                  },
+                  "enabled": {
+                      "type": "boolean"
+                  },
+                  "path": {
+                      "type": "string"
+                  }
+              },
+              "type": "object"
+          }
+      },
+      "type": "object"
     }
   },
   "order": [
