@@ -3,6 +3,18 @@
     "name": {
       "description": "Application name",
       "type": "string"
+    },
+    "nameOverride": {
+      "description": "description",
+      "type": "string"
+    },
+    "fullnameOverride": {
+      "description": "description",
+      "type": "string"
+    },
+    "replicaCount": {
+      "description": "Number of replicas",
+      "type": "integer"
     }
   },
   "order": [
