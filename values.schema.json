@@ -1,22 +1,22 @@
 {
-    "properties": {
-      "nameOverride": {
-        "description": "deskripsi",
-        "type": "string"
-      },
-      "fullnameOverride": {
-        "description": "deskripsi",
-        "type": "string"
-      }
+  "properties": {
+    "nameOverride": {
+      "description": "deskripsi",
+      "type": "string"
     },
-    "order": [
-      "nameOverride",
-      "fullnameOverride"
-  
-    ],
-    "required": [
-      "nameOverride"
-    ],
-    "title": "Values",
-    "type": "object"
-  }
+    "fullnameOverride": {
+      "description": "deskripsi",
+      "type": "string"
+    }
+  },
+  "order": [
+    "nameOverride",
+    "fullnameOverride"
+
+  ],
+  "required": [
+    "nameOverride"
+  ],
+  "title": "Values",
+  "type": "object"
+}
