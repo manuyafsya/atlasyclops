@@ -11,7 +11,11 @@
     "namespace": {
       "description": "deskripsi",
       "type": "string"
-    } 
+    },
+    "replicaCount": {
+      "description": "deskripsi",
+      "type": "integer"
+    }
   },
   "order": [
     "nameOverride",

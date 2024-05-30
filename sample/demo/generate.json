@@ -1,0 +1,332 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "properties": {
+        "autoscaling": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "maxReplicas": {
+                    "type": "integer"
+                },
+                "minReplicas": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "fullnameOverride": {
+            "type": "string"
+        },
+        "hostAliases": {
+            "items": {
+                "properties": {
+                    "hostnames": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "ip": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "image": {
+            "properties": {
+                "pullPolicy": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "imagePullSecrets": {
+            "items": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "ingress": {
+            "properties": {
+                "configs": {
+                    "items": {
+                        "properties": {
+                            "className": {
+                                "type": "string"
+                            },
+                            "ingressName": {
+                                "type": "string"
+                            },
+                            "rules": {
+                                "items": {
+                                    "properties": {
+                                        "host": {
+                                            "type": "string"
+                                        },
+                                        "http": {
+                                            "properties": {
+                                                "paths": {
+                                                    "items": {
+                                                        "properties": {
+                                                            "backend": {
+                                                                "properties": {
+                                                                    "service": {
+                                                                        "properties": {
+                                                                            "name": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "port": {
+                                                                                "properties": {
+                                                                                    "number": {
+                                                                                        "type": "integer"
+                                                                                    }
+                                                                                },
+                                                                                "type": "object"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "path": {
+                                                                "type": "string"
+                                                            },
+                                                            "pathType": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "interceptor": {
+            "properties": {
+                "args": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "liveness": {
+            "properties": {
+                "path": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "migrations": {
+            "properties": {
+                "args": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "name": {
+            "type": "string"
+        },
+        "nameOverride": {
+            "type": "string"
+        },
+        "namespace": {
+            "type": "string"
+        },
+        "replicaCount": {
+            "type": "integer"
+        },
+        "replicas": {
+            "type": "integer"
+        },
+        "resources": {
+            "properties": {
+                "limits": {
+                    "properties": {
+                        "cpu": {
+                            "type": "string"
+                        },
+                        "memory": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "requests": {
+                    "properties": {
+                        "cpu": {
+                            "type": "string"
+                        },
+                        "memory": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "secrets": {
+            "properties": {
+                "configs": {
+                    "properties": {
+                        "autorestart": {
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "path": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "creds": {
+                    "properties": {
+                        "autorestart": {
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "path": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "service": {
+            "properties": {
+                "configs": {
+                    "items": {
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "port": {
+                                "type": "integer"
+                            },
+                            "protocol": {
+                                "type": "string"
+                            },
+                            "targetPort": {
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "headless": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "version": {
+            "type": "string"
+        },
+        "volumeMounts": {
+            "items": {
+                "properties": {
+                    "mountPath": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "volumes": {
+            "items": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "secret": {
+                        "properties": {
+                            "secretName": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
