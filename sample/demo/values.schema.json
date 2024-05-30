@@ -1,26 +1,21 @@
 {
   "properties": {
-    "name": {
-      "description": "Application name",
-      "type": "string"
-    },
     "nameOverride": {
-      "description": "Application name",
+      "description": "deskripsi",
       "type": "string"
     },
     "fullnameOverride": {
-      "description": "Application name",
+      "description": "deskripsi",
       "type": "string"
     }
   },
   "order": [
-    "name",
     "nameOverride",
     "fullnameOverride"
 
   ],
   "required": [
-    "name"
+    "nameOverride"
   ],
   "title": "Values",
   "type": "object"
