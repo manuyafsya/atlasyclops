@@ -1,9 +1,5 @@
 {
   "properties": {
-    "name": {
-      "description": "Application name",
-      "type": "string"
-    },
     "nameOverride": {
       "description": "description",
       "type": "string"
@@ -18,10 +14,12 @@
     }
   },
   "order": [
-    "name"
+    "nameOverride",
+    "fullnameOverride"
   ],
   "required": [
-    "name"
+    "nameOverride",
+    "fullnameOverride"
   ],
   "title": "Values",
   "type": "object"
