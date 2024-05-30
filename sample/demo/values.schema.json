@@ -3,10 +3,21 @@
     "name": {
       "description": "Application name",
       "type": "string"
+    },
+    "nameOverride": {
+      "description": "Application name",
+      "type": "string"
+    },
+    "fullnameOverride": {
+      "description": "Application name",
+      "type": "string"
     }
   },
   "order": [
-    "name"
+    "name",
+    "nameOverride",
+    "fullnameOverride"
+
   ],
   "required": [
     "name"
