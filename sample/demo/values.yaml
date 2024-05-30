@@ -6,3 +6,85 @@ version: 1.14.2\
 
 nameOverride: atlas
 fullnameOverride: atlas
+namespace: namespace-atlas
+secrets:
+  configs:
+    enabled: false
+    autorestart:
+      enabled: false
+    path: pathto/configs/atlas
+  creds:
+    enabled: false
+    autorestart:
+      enabled: false
+    path: pathto/creds/atlas
+volumes: 
+  - name: service-account
+    secret:
+      secretName: atlas-sa
+  - name: data
+    persistentVolumeClaim:
+      claimName: volumes-pvc
+volumeMounts:
+  - name: service-account
+    mountPath: /mnt
+  - name: data
+    mountPath: /data
+liveness:
+  port: 8000
+  type: tcpSocket
+  path: /
+service:
+  type: ClusterIP
+  configs:
+    - name: http
+      port: 80
+      targetPort: 8000
+      protocol: TCP
+  headless: false
+imagePullSecrets:
+  - name: "gcr-json-key"
+image:
+  pullPolicy: "IfNotPresent"
+  repository: "asia.gcr.io/manuyafsya/atlas/apps"
+  tag: "1.0.0"
+interceptor:
+  enabled: false
+  args: "echo 'test-interceptor'"
+migrations:
+  enabled: false
+  type: init-container
+  args:
+    - "cd /opt/atlas; echo 'Initializing Service"
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+replicaCount: 1
+resources: 
+  limits:
+    cpu: 400m
+    memory: 256Mi
+  requests:
+    cpu: 300m
+    memory: 192Mi
+ingress:
+  enabled: false
+  configs:
+    - ingressName: "internal"
+      className: "internal-nginx"
+      rules:
+        - host: atlas.domain.tld
+          http:
+            paths:
+              - path: /rc(?:\/|$)(.*)
+                pathType: Prefix
+                backend:
+                  service:
+                    name: rc-atlas
+                    port:
+                      number: 80
+hostAliases:
+  - ip: "8.8.8.8"
+    hostnames:
+    - "google.com"

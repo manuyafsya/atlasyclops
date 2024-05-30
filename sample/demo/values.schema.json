@@ -7,7 +7,11 @@
     "fullnameOverride": {
       "description": "deskripsi",
       "type": "string"
-    }
+    },
+    "namespace": {
+      "description": "deskripsi",
+      "type": "string"
+    } 
   },
   "order": [
     "nameOverride",
