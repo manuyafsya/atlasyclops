@@ -1,16 +1,6 @@
 {
   "properties": {
-    "namespace": {
-      "description": "namespace",
-      "type": "string"
-    }
   },
-  "order": [
-    "namespace"
-  ],
-  "required": [
-    "namespace"
-  ],
   "title": "Values",
   "type": "object"
 }
