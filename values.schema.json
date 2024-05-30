@@ -457,5 +457,6 @@
             "type": "array"
         }
     },
+    "title": "Values",
     "type": "object"
 }
