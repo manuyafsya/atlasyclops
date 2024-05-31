@@ -191,37 +191,6 @@
             },
             "type": "object"
         },
-        "service": {
-            "properties": {
-                "configs": {
-                    "items": {
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "port": {
-                                "type": "integer"
-                            },
-                            "protocol": {
-                                "type": "string"
-                            },
-                            "targetPort": {
-                                "type": "integer"
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "type": "array"
-                },
-                "headless": {
-                    "type": "boolean"
-                },
-                "type": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
         "version": {
             "type": "string"
         }
