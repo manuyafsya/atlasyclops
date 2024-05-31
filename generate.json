@@ -1,5 +1,4 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "properties": {
         "autoscaling": {
             "properties": {
@@ -25,5 +24,8 @@
             "type": "integer"
         }
     },
+    "order": [],
+    "required": [],
+    "title": "Values",
     "type": "object"
 }
