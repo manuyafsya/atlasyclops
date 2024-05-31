@@ -77,6 +77,20 @@
           "type": "object"
       },
       "type": "array"
+    },
+    "volumeMounts": {
+      "items": {
+          "properties": {
+              "mountPath": {
+                  "type": "string"
+              },
+              "name": {
+                  "type": "string"
+              }
+          },
+          "type": "object"
+      },
+      "type": "array"
     }
   },
   "order": [
