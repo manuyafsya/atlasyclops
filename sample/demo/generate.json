@@ -15,9 +15,6 @@
             },
             "type": "object"
         },
-        "fullnameOverride": {
-            "type": "string"
-        },
         "hostAliases": {
             "items": {
                 "properties": {
@@ -178,15 +175,6 @@
         "name": {
             "type": "string"
         },
-        "nameOverride": {
-            "type": "string"
-        },
-        "namespace": {
-            "type": "string"
-        },
-        "replicaCount": {
-            "type": "integer"
-        },
         "replicas": {
             "type": "integer"
         },
@@ -209,49 +197,6 @@
                             "type": "string"
                         },
                         "memory": {
-                            "type": "string"
-                        }
-                    },
-                    "type": "object"
-                }
-            },
-            "type": "object"
-        },
-        "secrets": {
-            "properties": {
-                "configs": {
-                    "properties": {
-                        "autorestart": {
-                            "properties": {
-                                "enabled": {
-                                    "type": "boolean"
-                                }
-                            },
-                            "type": "object"
-                        },
-                        "enabled": {
-                            "type": "boolean"
-                        },
-                        "path": {
-                            "type": "string"
-                        }
-                    },
-                    "type": "object"
-                },
-                "creds": {
-                    "properties": {
-                        "autorestart": {
-                            "properties": {
-                                "enabled": {
-                                    "type": "boolean"
-                                }
-                            },
-                            "type": "object"
-                        },
-                        "enabled": {
-                            "type": "boolean"
-                        },
-                        "path": {
                             "type": "string"
                         }
                     },
@@ -302,25 +247,6 @@
                     },
                     "name": {
                         "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "type": "array"
-        },
-        "volumes": {
-            "items": {
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "secret": {
-                        "properties": {
-                            "secretName": {
-                                "type": "string"
-                            }
-                        },
-                        "type": "object"
                     }
                 },
                 "type": "object"

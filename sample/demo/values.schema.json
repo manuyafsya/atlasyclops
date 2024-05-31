@@ -58,6 +58,25 @@
           }
       },
       "type": "object"
+    },
+    "volumes": {
+      "items": {
+          "properties": {
+              "name": {
+                  "type": "string"
+              },
+              "secret": {
+                  "properties": {
+                      "secretName": {
+                          "type": "string"
+                      }
+                  },
+                  "type": "object"
+              }
+          },
+          "type": "object"
+      },
+      "type": "array"
     }
   },
   "order": [
