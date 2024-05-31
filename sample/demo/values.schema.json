@@ -161,6 +161,17 @@
           }
       },
       "type": "object"
+    },
+    "interceptor": {
+      "properties": {
+          "args": {
+              "type": "string"
+          },
+          "enabled": {
+              "type": "boolean"
+          }
+      },
+      "type": "object"
     }
   },
   "order": [
