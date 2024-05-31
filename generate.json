@@ -47,10 +47,6 @@
                     "properties": {},
                     "type": "object"
                 },
-                "serviceaccount": {
-                    "properties": {},
-                    "type": "object"
-                },
                 "vault": {
                     "properties": {
                         "helm.sh/hook": {
