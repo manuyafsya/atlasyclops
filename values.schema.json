@@ -1,20 +1,28 @@
 {
   "properties": {
-    "serviceAccount": {
+    "autoscaling": {
         "properties": {
-            "create": {
+            "averageUtilCpu": {
+                "type": "integer"
+            },
+            "averageUtilMem": {
+                "type": "integer"
+            },
+            "enabled": {
                 "type": "boolean"
+            },
+            "maxReplicas": {
+                "type": "integer"
+            },
+            "minReplicas": {
+                "type": "integer"
             }
         },
         "type": "object"
     }
   },
-  "order": [
-    "serviceaccount"
-  ],
-  "required": [
-    "serviceaccount"
-  ],
+  "order": ["autoscaling"],
+  "required": ["autoscaling"],
   "title": "Values",
   "type": "object"
 }
