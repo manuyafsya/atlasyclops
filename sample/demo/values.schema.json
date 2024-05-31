@@ -189,6 +189,20 @@
           }
       },
       "type": "object"
+    },
+    "autoscaling": {
+      "properties": {
+          "enabled": {
+              "type": "boolean"
+          },
+          "maxReplicas": {
+              "type": "integer"
+          },
+          "minReplicas": {
+              "type": "integer"
+          }
+      },
+      "type": "object"
     }
   },
   "order": [
