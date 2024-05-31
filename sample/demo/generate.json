@@ -46,17 +46,6 @@
             },
             "type": "object"
         },
-        "imagePullSecrets": {
-            "items": {
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "type": "array"
-        },
         "ingress": {
             "properties": {
                 "configs": {
