@@ -6,12 +6,10 @@
     }
   },
   "order": [
-    "nameOverride",
-    "fullnameOverride"
-
+    "serviceaccount"
   ],
   "required": [
-    "nameOverride"
+    "serviceaccount"
   ],
   "title": "Values",
   "type": "object"
