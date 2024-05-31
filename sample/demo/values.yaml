@@ -1,9 +1,3 @@
-image: nginx
-name: demo-app
-replicas: 1
-service: true
-version: 1.14.2
-
 nameOverride: atlas
 fullnameOverride: atlas
 namespace: namespace-atlas

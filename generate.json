@@ -1,6 +1,26 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "properties": {
+        "autoscaling": {
+            "properties": {
+                "averageUtilCpu": {
+                    "type": "integer"
+                },
+                "averageUtilMem": {
+                    "type": "integer"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "maxReplicas": {
+                    "type": "integer"
+                },
+                "minReplicas": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
         "replicaCount": {
             "type": "integer"
         }
