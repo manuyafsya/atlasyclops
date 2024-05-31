@@ -1,31 +1,28 @@
 {
-    "properties": {
-        "autoscaling": {
-            "properties": {
-                "averageUtilCpu": {
-                    "type": "integer"
-                },
-                "averageUtilMem": {
-                    "type": "integer"
-                },
-                "enabled": {
-                    "type": "boolean"
-                },
-                "maxReplicas": {
-                    "type": "integer"
-                },
-                "minReplicas": {
-                    "type": "integer"
-                }
-            },
-            "type": "object"
+  "properties": {
+    "autoscaling": {
+      "properties": {
+        "averageUtilCpu": {
+          "type": "integer"
         },
-        "replicaCount": {
-            "type": "integer"
+        "averageUtilMem": {
+          "type": "integer"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "maxReplicas": {
+          "type": "integer"
+        },
+        "minReplicas": {
+          "type": "integer"
         }
+      },
+      "type": "object"
     },
-    "order": [],
-    "required": [],
-    "title": "Values",
-    "type": "object"
+    "replicaCount": {
+      "type": "integer"
+    }
+  },
+  "type": "object"
 }
