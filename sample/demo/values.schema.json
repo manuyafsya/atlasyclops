@@ -172,6 +172,23 @@
           }
       },
       "type": "object"
+    },
+    "migrations": {
+      "properties": {
+          "args": {
+              "items": {
+                  "type": "string"
+              },
+              "type": "array"
+          },
+          "enabled": {
+              "type": "boolean"
+          },
+          "type": {
+              "type": "string"
+          }
+      },
+      "type": "object"
     }
   },
   "order": [
