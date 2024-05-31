@@ -141,20 +141,6 @@
             },
             "type": "object"
         },
-        "liveness": {
-            "properties": {
-                "path": {
-                    "type": "string"
-                },
-                "port": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
         "migrations": {
             "properties": {
                 "args": {

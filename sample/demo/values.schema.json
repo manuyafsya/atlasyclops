@@ -91,6 +91,20 @@
           "type": "object"
       },
       "type": "array"
+    },
+    "liveness": {
+      "properties": {
+          "path": {
+              "type": "string"
+          },
+          "port": {
+              "type": "integer"
+          },
+          "type": {
+              "type": "string"
+          }
+      },
+      "type": "object"
     }
   },
   "order": [
