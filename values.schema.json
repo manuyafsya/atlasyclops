@@ -1,7 +1,11 @@
 {
   "properties": {
-    "serviceaccount": {
-        "properties": {},
+    "serviceAccount": {
+        "properties": {
+            "create": {
+                "type": "boolean"
+            }
+        },
         "type": "object"
     }
   },
