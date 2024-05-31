@@ -32,20 +32,6 @@
             },
             "type": "array"
         },
-        "image": {
-            "properties": {
-                "pullPolicy": {
-                    "type": "string"
-                },
-                "repository": {
-                    "type": "string"
-                },
-                "tag": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
         "ingress": {
             "properties": {
                 "configs": {

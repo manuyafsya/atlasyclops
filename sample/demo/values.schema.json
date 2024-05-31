@@ -147,6 +147,20 @@
           "type": "object"
       },
       "type": "array"
+    },
+    "image": {
+      "properties": {
+          "pullPolicy": {
+              "type": "string"
+          },
+          "repository": {
+              "type": "string"
+          },
+          "tag": {
+              "type": "string"
+          }
+      },
+      "type": "object"
     }
   },
   "order": [
