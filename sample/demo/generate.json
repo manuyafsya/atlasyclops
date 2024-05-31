@@ -97,33 +97,6 @@
         "replicas": {
             "type": "integer"
         },
-        "resources": {
-            "properties": {
-                "limits": {
-                    "properties": {
-                        "cpu": {
-                            "type": "string"
-                        },
-                        "memory": {
-                            "type": "string"
-                        }
-                    },
-                    "type": "object"
-                },
-                "requests": {
-                    "properties": {
-                        "cpu": {
-                            "type": "string"
-                        },
-                        "memory": {
-                            "type": "string"
-                        }
-                    },
-                    "type": "object"
-                }
-            },
-            "type": "object"
-        },
         "version": {
             "type": "string"
         }
