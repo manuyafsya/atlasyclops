@@ -9,19 +9,43 @@
         "type": "string"
     },
     "replicaCount": {
+        "description": "# Default replica count",
         "type": "integer"
+    },
+    "autoscaling": {
+        "description": "# Autoscale True/False",
+        "properties": {
+            "averageUtilCpu": {
+                "type": "integer"
+            },
+            "averageUtilMem": {
+                "type": "integer"
+            },
+            "enabled": {
+                "type": "boolean"
+            },
+            "maxReplicas": {
+                "type": "integer"
+            },
+            "minReplicas": {
+                "type": "integer"
+            }
+        },
+        "type": "object"
     }
   },
   "order": [
     "fullnameOverride",
     "namespace",
-    "replicaCount"
+    "replicaCount",
+    "autoscaling"
 
   ],
   "required": [
     "fullnameOverride",
     "namespace",
-    "replicaCount"
+    "replicaCount",
+    "autoscaling"
   ],
   "title": "Values",
   "type": "object"
