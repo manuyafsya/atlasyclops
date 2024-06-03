@@ -1,20 +1,27 @@
 {
   "properties": {
     "fullnameOverride": {
-      "description": "## Service/App-name",
+      "description": "# Service/App-name",
       "type": "string"
     },
     "namespace": {
-        "description": "## namespace",
+        "description": "# Namespace",
         "type": "string"
+    },
+    "replicaCount": {
+        "type": "integer"
     }
   },
   "order": [
-    "fullnameOverride"
+    "fullnameOverride",
+    "namespace",
+    "replicaCount"
 
   ],
   "required": [
-    "fullnameOverride"
+    "fullnameOverride",
+    "namespace",
+    "replicaCount"
   ],
   "title": "Values",
   "type": "object"
