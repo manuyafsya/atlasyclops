@@ -1,8 +1,0 @@
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 2
-  averageUtilMem: 80
-  averageUtilCpu: 80
-
-replicaCount: 1
