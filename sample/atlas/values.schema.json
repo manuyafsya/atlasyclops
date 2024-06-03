@@ -31,6 +31,7 @@
                 "type": "integer"
             }
         },
+        "order": [ "enabled", "minReplicas", "maxReplicas","averageUtilCpu","averageUtilMem" ],
         "type": "object"
     }
   },
