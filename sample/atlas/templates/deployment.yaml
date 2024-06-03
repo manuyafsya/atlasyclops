@@ -1,16 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "atlas.fullname" . }}
+  name: {{ .Values.fullnameOverride }}
   labels:
-    {{- include "atlas.labels" . | nindent 4 }}
+    app.kubernetes.io/instance: {{ .Values.fullnameOverride }}     
+    app.kubernetes.io/managed-by: {{ .Release.Service }}                                                                                                                                                                                                     │
+    app.kubernetes.io/name: {{ .Values.fullnameOverride }}    
+    app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}    
+    helm.sh/chart: {{ printf "%s-%s" .Chart.Name .Chart.Version }}                                                                                                                                                                                                             
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "atlas.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/name: {{ .Values.fullnameOverride }}
+      app.kubernetes.io/instance: {{ .Values.fullnameOverride }}
   template:
     metadata:
       {{- with .Values.annotations.deployment }}
@@ -18,7 +23,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "atlas.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/name: {{ .Values.fullnameOverride }}
+        app.kubernetes.io/instance: {{ .Values.fullnameOverride }}
     spec:
       {{- with .Values.hostAliases }}
       hostAliases:
@@ -33,7 +39,7 @@ spec:
       {{- end }}
       {{- if and .Values.migrations.enabled (eq .Values.migrations.type "init-container") }}
       initContainers:
-        - name: {{ include "atlas.fullname" . }}-migrations
+        - name: {{ .Values.fullnameOverride }}-migrations
           {{- with .Values.volumeMounts }}
           volumeMounts:
           {{- toYaml . | nindent 12 }}
@@ -44,11 +50,20 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if or .Values.secrets.configs.enabled .Values.secrets.creds.enabled .Values.secrets.additional.enabled }}
           envFrom:
-          {{- include "atlas.secret" . | indent 10 }}
-            {{- range .Values.secrets.additional.name }}
-            - secretRef: 
+          {{- if .Values.secrets.configs.enabled }}
+            - secretRef:
+                name: "{{ .Values.fullnameOverride }}-configs"
+          {{- end }}
+          {{- if .Values.secrets.creds.enabled }}
+            - secretRef:
+                name: "{{ .Values.fullnameOverride }}-creds"
+          {{- end }}
+          {{- if .Values.secrets.additional.enabled }}
+          {{- range .Values.secrets.additional.name }}
+            - secretRef:
                 name: {{ . | quote }}
-            {{- end }}
+          {{- end }}
+          {{- end }}
           {{- end }}
           command: ["/bin/sh", "-c"]
           args: 
@@ -60,11 +75,13 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "atlas.serviceAccountName" . }}
+      serviceAccount:
+        create: true
+        name: "{{ .Values.fullnameOverride }}"
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ include "atlas.fullname" . }}
+        - name: {{ .Values.fullnameOverride }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
           {{- toYaml . | nindent 12 }}
@@ -75,23 +92,85 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if or .Values.secrets.configs.enabled .Values.secrets.creds.enabled .Values.secrets.additional.enabled }}
           envFrom:
-          {{- include "atlas.secret" . | indent 10 }}
-            {{- range .Values.secrets.additional.name }}
-            - secretRef: 
+          {{- if .Values.secrets.configs.enabled }}
+            - secretRef:
+                name: "{{ .Values.fullnameOverride }}-configs"
+          {{- end }}
+          {{- if .Values.secrets.creds.enabled }}
+            - secretRef:
+                name: "{{ .Values.fullnameOverride }}-creds"
+          {{- end }}
+          {{- if .Values.secrets.additional.enabled }}
+          {{- range .Values.secrets.additional.name }}
+            - secretRef:
                 name: {{ . | quote }}
-            {{- end }}
+          {{- end }}
+          {{- end }}
           {{- end }}
           {{- if .Values.interceptor.enabled }}
           command: ["/bin/sh", "-c"]
           args: [{{ .Values.interceptor.args | quote }}]
           {{- end }}
+          {{- if .Values.service.enabled }}
           ports:
             {{- range .Values.service.configs }}
             - name: {{ .name }}
               containerPort: {{ .targetPort }}
               protocol: {{ .protocol }}
             {{- end }}
-          {{- include "atlas.liveness" . | indent 10 }}
+          {{- if eq .Values.liveness.type "httpGet" }}
+          livenessProbe:
+            initialDelaySeconds: {{ .Values.liveness.initialDelay }}
+            periodSeconds: {{ .Values.liveness.periodSeconds }}
+            successThreshold: {{ .Values.liveness.successThreshold }}
+            failureThreshold: {{ .Values.liveness.failureThreshold }}
+            httpGet:
+              path: {{ .Values.liveness.path }}
+              port: {{ .Values.liveness.port }}
+          readinessProbe:
+            initialDelaySeconds: {{ .Values.liveness.initialDelay }}
+            periodSeconds: {{ .Values.liveness.periodSeconds }}
+            successThreshold: {{ .Values.liveness.successThreshold }}
+            failureThreshold: {{ .Values.liveness.failureThreshold }}
+            httpGet:
+              path: {{ .Values.liveness.path }}
+              port: {{ .Values.liveness.port }}
+          {{- else if eq .Values.liveness.type "exec" }}
+          livenessProbe:
+            initialDelaySeconds: {{ .Values.liveness.initialDelay }}
+            periodSeconds: {{ .Values.liveness.periodSeconds }}
+            successThreshold: {{ .Values.liveness.successThreshold }}
+            failureThreshold: {{ .Values.liveness.failureThreshold }}
+            exec:
+              command:
+                - grpc_health_probe
+                - -addr=:{{ .Values.liveness.port }}
+          readinessProbe:
+            initialDelaySeconds: {{ .Values.liveness.initialDelay }}
+            periodSeconds: {{ .Values.liveness.periodSeconds }}
+            successThreshold: {{ .Values.liveness.successThreshold }}
+            failureThreshold: {{ .Values.liveness.failureThreshold }}
+            exec:
+              command:
+                - grpc_health_probe
+                - -addr=:{{ .Values.liveness.port }}
+          {{- else if eq .Values.liveness.type "tcpSocket" }}
+          livenessProbe:
+            initialDelaySeconds: {{ .Values.liveness.initialDelay }}
+            periodSeconds: {{ .Values.liveness.periodSeconds }}
+            successThreshold: {{ .Values.liveness.successThreshold }}
+            failureThreshold: {{ .Values.liveness.failureThreshold }}
+            tcpSocket:
+              port: {{ .Values.liveness.port }}
+          readinessProbe:
+            initialDelaySeconds: {{ .Values.liveness.initialDelay }}
+            periodSeconds: {{ .Values.liveness.periodSeconds }}
+            successThreshold: {{ .Values.liveness.successThreshold }}
+            failureThreshold: {{ .Values.liveness.failureThreshold }}
+            tcpSocket:
+              port: {{ .Values.liveness.port }}
+          {{- end }}
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
