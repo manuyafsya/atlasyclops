@@ -1,8 +1,12 @@
 {
   "properties": {
     "fullnameOverride": {
-      "description": "deskripsi",
+      "description": "## Service/App-name",
       "type": "string"
+    },
+    "namespace": {
+        "description": "## namespace",
+        "type": "string"
     }
   },
   "order": [
