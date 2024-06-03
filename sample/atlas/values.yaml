@@ -7,6 +7,9 @@ tolerations: []
 ## Service/App-name
 fullnameOverride: atlas
 
+## Namespace ##
+namespace: namespace-atlas
+
 ## Replica ##
 replicaCount: 1
 
@@ -155,3 +158,40 @@ secrets:
   additional:
     enabled: false
     name: {}
+
+## Ingress ##
+## enable disable ingress
+## set true to ingress.external.enabled to enable external ingress
+## you can modify ingress.rules freely
+ingress:
+  enabled: false
+  configs:
+    - ingressName: "internal"
+      className: "internal-nginx"
+      rules:
+        - host: atlas.domain.tld
+          http:
+            paths:
+              - path: /rc(?:\/|$)(.*)
+                pathType: Prefix
+                backend:
+                  service:
+                    name: rc-atlas
+                    port:
+                      number: 80
+    # - ingressName: "b2b-ingress"
+    #   className: "internal-nginx"
+    #   rules:
+    #     - host: atlas.privyinfra.id
+    #       http:
+    #         - path: /(.*)
+    #           pathType: Prefix
+    #           backend:
+    #             service:
+    #               name: atlas
+    #               port:
+    #                 number: 80
+  # tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
