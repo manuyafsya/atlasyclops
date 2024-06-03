@@ -26,9 +26,11 @@ spec:
         app.kubernetes.io/name: {{ .Values.fullnameOverride }}
         app.kubernetes.io/instance: {{ .Values.fullnameOverride }}
     spec:
-      {{- with .Values.hostAliases }}
+      {{- if .Values.hostAliases.enabled }}
+      {{- with .Values.hostAliases.iphostname }}
       hostAliases:
       {{- toYaml . | nindent 6 }}
+      {{- end }}
       {{- end }}
       {{- if .Values.gracePeriodSeconds.enabled }}
       terminationGracePeriodSeconds: {{ .Values.gracePeriodSeconds.value }}
