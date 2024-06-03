@@ -16,6 +16,7 @@
         "description": "# Autoscale True/False",
         "properties": {
             "averageUtilCpu": {
+                "description": "# nilai rata-rata pemakaian cpu",
                 "type": "integer"
             },
             "averageUtilMem": {
