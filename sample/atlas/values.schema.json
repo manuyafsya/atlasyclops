@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "fullnameOverride": {
+      "description": "deskripsi",
+      "type": "string"
+    }
+  },
+  "order": [
+    "fullnameOverride"
+
+  ],
+  "required": [
+    "fullnameOverride"
+  ],
+  "title": "Values",
+  "type": "object"
+}
