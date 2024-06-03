@@ -3,6 +3,8 @@ securityContext: {}
 nodeSelector: {}
 affinity: {}
 tolerations: []
+serviceAccount:
+  create: true
 
 ## Service/App-name
 fullnameOverride: atlas
