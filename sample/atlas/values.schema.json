@@ -99,7 +99,7 @@
         "type": "object"
     },
     "volumes": {
-        "description": "# Enable/Disable hostAlias",
+        "description": "# Add Volumes",
         "items": {
             "properties": {
                 "name": {
