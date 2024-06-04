@@ -35,13 +35,74 @@
         },
         "order": [ "enabled", "minReplicas", "maxReplicas","averageUtilCpu","averageUtilMem" ],
         "type": "object"
+    },
+    "annotations": {
+        "properties": {
+            "deployment": {
+                "properties": {},
+                "type": "object"
+            },
+            "hpa": {
+                "properties": {},
+                "type": "object"
+            },
+            "ingress": {
+                "properties": {
+                    "nginx.ingress.kubernetes.io/proxy-body-size": {
+                        "type": "string"
+                    },
+                    "nginx.ingress.kubernetes.io/use-regex": {
+                        "type": "string"
+                    },
+                    "nginx.org/client-max-body-size": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "preupgradejob": {
+                "properties": {
+                    "helm.sh/hook": {
+                        "type": "string"
+                    },
+                    "helm.sh/hook-delete-policy": {
+                        "type": "string"
+                    },
+                    "helm.sh/hook-weight": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "service": {
+                "properties": {},
+                "type": "object"
+            },
+            "serviceaccount": {
+                "properties": {},
+                "type": "object"
+            },
+            "vault": {
+                "properties": {
+                    "helm.sh/hook": {
+                        "type": "string"
+                    },
+                    "helm.sh/hook-weight": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "type": "object"
     }
   },
   "order": [
     "fullnameOverride",
     "namespace",
     "replicaCount",
-    "autoscaling"
+    "autoscaling",
+    "annotations"
 
   ],
   "required": [
