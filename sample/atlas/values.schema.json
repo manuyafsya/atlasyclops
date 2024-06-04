@@ -71,9 +71,10 @@
         "type": "object"
     },
     "hostAliases": {
-        "description": "# Annotations",
+        "description": "# Host-Alias",
         "properties": {
             "enabled": {
+                "description": "# Enable/Disable hostAlias",
                 "type": "boolean"
             },
             "iphostname": {
