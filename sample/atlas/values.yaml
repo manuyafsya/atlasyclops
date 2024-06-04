@@ -26,21 +26,17 @@ autoscaling:
 ## All Annotations ##
 ## Add annotation to selected resources
 annotations:
-  ingress:
-    "nginx.ingress.kubernetes.io/proxy-body-size": "10M"
-    "nginx.ingress.kubernetes.io/use-regex": "true"
-    "nginx.org/client-max-body-size": "10M"
+  ingress: {}
+    # "nginx.ingress.kubernetes.io/proxy-body-size": "10M"
+    # "nginx.ingress.kubernetes.io/use-regex": "true"
+    # "nginx.org/client-max-body-size": "10M"
   deployment: {}
   hpa: {}
-  preupgradejob:
-    "helm.sh/hook": pre-install,pre-upgrade
-    "helm.sh/hook-weight": "-5"
-    "helm.sh/hook-delete-policy": hook-succeeded
   service: {}
   serviceaccount: {}
-  vault:
-    "helm.sh/hook": pre-install,pre-upgrade
-    "helm.sh/hook-weight": "-10"
+  vault: {}
+    # "helm.sh/hook": pre-install, pre-upgrade
+    # "helm.sh/hook-weight": "-10"
 
 ## in case we need hostAliases ##
 hostAliases:
