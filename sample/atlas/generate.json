@@ -39,31 +39,6 @@
             },
             "type": "object"
         },
-        "hostAliases": {
-            "properties": {
-                "enabled": {
-                    "type": "boolean"
-                },
-                "iphostname": {
-                    "items": {
-                        "properties": {
-                            "hostnames": {
-                                "items": {
-                                    "type": "string"
-                                },
-                                "type": "array"
-                            },
-                            "ip": {
-                                "type": "string"
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
         "image": {
             "properties": {
                 "pullPolicy": {
@@ -369,25 +344,6 @@
                     },
                     "name": {
                         "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "type": "array"
-        },
-        "volumes": {
-            "items": {
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "secret": {
-                        "properties": {
-                            "secretName": {
-                                "type": "string"
-                            }
-                        },
-                        "type": "object"
                     }
                 },
                 "type": "object"
