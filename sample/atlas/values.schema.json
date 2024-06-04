@@ -101,19 +101,7 @@
     "volumes": {
         "description": "# Add Volumes",
         "items": {
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "secret": {
-                    "properties": {
-                        "secretName": {
-                            "type": "string"
-                        }
-                    },
-                    "type": "object"
-                }
-            },
+            "properties": {},
             "type": "object"
         },
         "type": "array"
