@@ -104,7 +104,8 @@
     "namespace",
     "replicaCount",
     "autoscaling",
-    "annotations"
+    "annotations",
+    "hostAliases"
 
   ],
   "required": [
