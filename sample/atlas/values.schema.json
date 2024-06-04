@@ -89,6 +89,7 @@
                             "type": "string"
                         }
                     },
+                    "order": [ "ip", "hostnames" ],
                     "type": "object"
                 },
                 "type": "array"
