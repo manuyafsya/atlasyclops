@@ -37,6 +37,7 @@
         "type": "object"
     },
     "annotations": {
+        "description": "# Annotations",
         "properties": {
             "deployment": {
                 "properties": {},
