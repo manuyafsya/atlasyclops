@@ -47,31 +47,11 @@
                 "type": "object"
             },
             "ingress": {
-                "properties": {
-                    "nginx.ingress.kubernetes.io/proxy-body-size": {
-                        "type": "string"
-                    },
-                    "nginx.ingress.kubernetes.io/use-regex": {
-                        "type": "string"
-                    },
-                    "nginx.org/client-max-body-size": {
-                        "type": "string"
-                    }
-                },
+                "properties": {},
                 "type": "object"
             },
             "preupgradejob": {
-                "properties": {
-                    "helm.sh/hook": {
-                        "type": "string"
-                    },
-                    "helm.sh/hook-delete-policy": {
-                        "type": "string"
-                    },
-                    "helm.sh/hook-weight": {
-                        "type": "string"
-                    }
-                },
+                "properties": {},
                 "type": "object"
             },
             "service": {
@@ -83,14 +63,7 @@
                 "type": "object"
             },
             "vault": {
-                "properties": {
-                    "helm.sh/hook": {
-                        "type": "string"
-                    },
-                    "helm.sh/hook-weight": {
-                        "type": "string"
-                    }
-                },
+                "properties": {},
                 "type": "object"
             }
         },
